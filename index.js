@@ -4,7 +4,7 @@ const  cups = document.querySelectorAll(".small-cup");
 const litre = document.getElementById("litres");
 const remained = document.getElementById("remained")
 
-// console.log(height)
+
 updateContainer()
 cups.forEach( (cup,index) =>{
     cup.addEventListener("click",()=> highlightCup(index))
@@ -13,6 +13,11 @@ cups.forEach( (cup,index) =>{
 
 
 function highlightCup(index){
+    //  if the cups contain water , by clcicking on it, it emptied it
+
+    if(cups[index].classList.contains("full") && !cups[index].nextElementSibling.classList.contains("full")){
+        index--
+    }
 
     cups.forEach((singleCup, index2)=>{
         if (index2<=index) {
@@ -43,7 +48,7 @@ function updateContainer() {
         remained.style.height ="0"
     }else{
         remained.style.visibility ="visible";
-        litre.innerHTML = `${2 -( 250*fullCups/1000)}L`
+        litre.innerHTML = `${2 - ( 250*fullCups/1000)}L`
     }
 
 }
