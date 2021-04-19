@@ -32,7 +32,7 @@ function highlightCup(index){
 function updateContainer() {
     const fullCups = document.querySelectorAll(".small-cup.full").length;
     const allCups = cups.length
-    console.log(fullCups)
+
     
     if (fullCups===0){
     perCent.style.visibility= "hidden" ;
